@@ -10,4 +10,13 @@ services:
     # 현재 경로에 이미지 빌드
     build:
       context: .
-    #   dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile.dev
+    # 포트 포워딩
+    ports:
+      - "3000:3000"
+    # 호스트 디렉토리에 바인드 마운트
+    volumes:
+      - ./src:/app/src:ro
+    # 환경 변수 설정
+    env_file:
+      - ./.env
